@@ -1,0 +1,59 @@
+.a1 {
+    position: fixed; bottom: 0; height: 100px;
+}
+
+.a2 {
+    display: flex; justify-content: space-between;
+}
+
+.a3 {
+    float:right;
+}
+
+.a4 {
+    height: 100px;
+}
+
+.b1{
+    min-height: 400px;
+}
+
+.c1{
+    width: 100%;
+}
+
+.icon {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin-right: 20px;
+    margin-left: auto;
+}
+
+input::placeholder {
+    text-align: center;
+}
+
+.image-section {
+    width: 45%;
+    height: 100vh;
+    background: url("./img/Doctor-Login-Image.png") no-repeat center center;
+    background-size: cover;
+    float: left;
+  }
+
+  .content-section {
+    width: 55%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: right;
+    padding: 10%;
+  }
+
+  .content-section .card {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 500px;
+  }
