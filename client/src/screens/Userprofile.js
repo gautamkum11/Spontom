@@ -2,15 +2,10 @@ import React from "react";
 import "../index.css";
 import "../assets/css/style.css";
 import logoimg from "../assets/img/logo.png";
-import {Helmet} from "react-helmet";
 
 function Userprofile() {
     return (
         <>
-            <Helmet>
-                <link href="assets/css/style.css" rel="stylesheet" />
-                <script src="assets/js/main.js"></script>
-            </Helmet>
             <header id="header" className="header fixed-top d-flex align-items-center">
 
             <div className="d-flex align-items-center justify-content-between">

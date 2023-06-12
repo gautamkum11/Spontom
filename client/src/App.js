@@ -7,6 +7,7 @@ import Patients from "./screens/Patients";
 import Userprofile from "./screens/Userprofile";
 import Lockscreen from "./screens/Lockscreen";
 import Login from "./screens/Login";
+import Viewpatient from "./screens/Viewpatient";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path = "/userprofile" element  = {<Userprofile />} />
       <Route path = "/lockscreen" element  = {<Lockscreen />} />
       <Route path = "/login" element  = {<Login />} />
+      <Route path = "/viewpatient" element  = {<Viewpatient />} />
     </Routes>
   );
 }

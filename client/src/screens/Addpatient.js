@@ -1,17 +1,21 @@
-import React from "react";
+import React, {useState} from "react";
 import "../index.css";
 import "../assets/css/style.css";
 import img1 from "../assets/img/profile-img.jpg";
 import logoimg from "../assets/img/logo.png";
-import { Helmet } from "react-helmet";
 
 function Addpatient() {
+    const [toggle, setToggle] = useState(true);
+
+    const togglesidebar = () => {
+        if(toggle)
+        setToggle(false);
+        else 
+        setToggle(true);
+    }
+
     return (
         <>
-            <Helmet>
-                <link href="assets/css/style.css" rel="stylesheet" />
-                <script src="assets/js/main.js"></script>
-            </Helmet>
             <header id="header" className="header fixed-top d-flex align-items-center">
 
             <div className="d-flex align-items-center justify-content-between">
@@ -19,7 +23,7 @@ function Addpatient() {
                 <img src= {logoimg} alt="" />
                 <span className="d-none d-lg-block">ANC</span>
             </a>
-            <i className="bi bi-list toggle-sidebar-btn"></i>
+            <i className="bi bi-list toggle-sidebar-btn" onclick = {togglesidebar}></i>
             </div>
             {/* <!-- End Logo --> */}
 

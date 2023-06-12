@@ -1,16 +1,13 @@
 import React from "react";
 import "../index.css";
-import "../assets/css/style.css";
 import logoimg from "../assets/img/logo.png";
-import {Helmet} from "react-helmet";
+import Reportchart from "../charts/Reportchart";
+import Budgetchart from "../charts/Budgetchart";
+import Trafficchart from "../charts/Trafficchart";
 
 function Doctorsavailability() {
     return (
         <>
-            <Helmet>
-                <link href="assets/css/style.css" rel="stylesheet" />
-                <script src="assets/js/main.js"></script>
-            </Helmet>
             <header id="header" className="header fixed-top d-flex align-items-center">
 
             <div className="d-flex align-items-center justify-content-between">
@@ -423,7 +420,9 @@ function Doctorsavailability() {
                         <h5 className="card-title">Reports <span>/Today</span></h5>
 
                         {/* <!-- Line Chart --> */}
-                        <div id="reportsChart"></div>
+                        <div>
+                            <Reportchart />
+                        </div>
 
                         {/* <!-- End Line Chart --> */}
 
@@ -688,9 +687,11 @@ function Doctorsavailability() {
                     <div className="card-body pb-0">
                     <h5 className="card-title">Budget Report <span>| This Month</span></h5>
 
-                    <div id="budgetChart" className="echart b1"></div>
-
+                    <div className="echart b1">
+                        <Budgetchart  />
                     </div>
+                    </div>
+                    {/* </div> */}
                 </div>
                 {/* <!-- End Budget Report --> */}
 
@@ -712,8 +713,9 @@ function Doctorsavailability() {
                     <div className="card-body pb-0">
                     <h5 className="card-title">Website Traffic <span>| Today</span></h5>
 
-                    <div id="trafficChart" className="echart b1"></div>
-
+                    <div className = "echart b1">
+                        <Trafficchart  />
+                    </div>
                     </div>
                 </div>
                 {/* <!-- End Website Traffic --> */}

@@ -307,6 +307,7 @@
   /**
    * Autoresize echart charts
    */
+  
   const mainContainer = select('#main');
   if (mainContainer) {
     setTimeout(() => {
@@ -317,5 +318,8 @@
       }).observe(mainContainer);
     }, 200);
   }
+
+  
+  
 
 })();

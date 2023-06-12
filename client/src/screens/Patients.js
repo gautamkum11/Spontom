@@ -2,15 +2,13 @@ import React from "react";
 import "../index.css";
 import "../assets/css/style.css";
 import logoimg from "../assets/img/logo.png";
-import {Helmet} from "react-helmet";
+import data from "../data/patient.json";
+import {useNavigate} from "react-router-dom";
 
 function Patients() {
+    const navigate = useNavigate();
     return (
         <>
-            <Helmet>
-                <link href="assets/css/style.css" rel="stylesheet" />
-                <script src="assets/js/main.js"></script>
-            </Helmet>
             <header id="header" className="header fixed-top d-flex align-items-center">
 
             <div className="d-flex align-items-center justify-content-between">
@@ -278,7 +276,7 @@ function Patients() {
             </div>
             
             <div>
-                <button type="button" className="btn btn-primary a3" onclick="window.location.href='Add-Patient.html'"><i className="bi bi-person-plus"></i>  Add Patient</button> 
+                <a className="btn btn-primary a3" href = "/addpatient"><i className="bi bi-person-plus"></i>  Add Patient</a> 
             </div>
             
             
@@ -289,82 +287,49 @@ function Patients() {
             <section className="section">
                 <div className="row">
                 <div className="col-lg-12">
-
+                    
                     <div className="card">
                     <div className="card-body">
                         
+                        <div className="search-bar" style = {{padding: "10px"}}>
+                        <form className="search-form d-flex align-items-center" method="POST" action="#">
+                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
+                            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                        </form>
+                        </div>
                     
                         {/* <!-- Table with stripped rows --> */}
                         <table className="table datatable">
                         <thead>
                             <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Patient ID</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone Number</th>
-                            <th scope="col">Birth Date & Age</th>
-                            <th scope="col">Address</th>
-                            <th scope="col">Blood Group</th>
+                            <th scope="col">S.No</th>
+                            <th scope="col">MR Number</th>
+                            <th scope="col">Patient Name</th>
+                            <th scope="col">Age</th>
                             <th scope="col">Gender</th>
+                            <th scope="col">Last Consultation</th>
+                            <th scope="col">Phone Number</th>
                             <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                            <th scope="row">1</th>
-                            <td>PAT001</td>
-                            <td>Rajesh Kumar</td>
-                            <td>9876543210</td>
-                            <td>01/01/1980 (43)</td>
-                            <td>Banjara Hills, Hyderabad</td>
-                            <td>A+</td>
-                            <td>Male</td>
-                            <td>Edit / Delete</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>PAT002</td>
-                            <td>Divya Reddy</td>
-                            <td>8765432109</td>
-                            <td>05/06/1992 (31)</td>
-                            <td>Kukatpally, Hyderabad</td>
-                            <td>B-</td>
-                            <td>Female</td>
-                            <td>Edit / Delete</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>PAT003</td>
-                            <td>Arvind Gupta</td>
-                            <td>7654321098</td>
-                            <td>12/07/1985 (38)</td>
-                            <td>Madhapur, Hyderabad</td>
-                            <td>O+</td>
-                            <td>Male</td>
-                            <td>Edit / Delete</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">4</th>
-                            <td>PAT004</td>
-                            <td>Sneha Sharma</td>
-                            <td>6543210987</td>
-                            <td>15/09/1977 (46)</td>
-                            <td>Secunderabad, Hyderabad</td>
-                            <td>A-</td>
-                            <td>Female</td>
-                            <td>Edit / Delete</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">5</th>
-                            <td>PAT005</td>
-                            <td>Sai Kiran</td>
-                            <td>5432109876</td>
-                            <td>25/02/1998 (25)</td>
-                            <td>Gachibowli, Hyderabad</td>
-                            <td>AB+</td>
-                            <td>Male</td>
-                            <td>Edit / Delete</td>
-                            </tr>
+                            {data && data.map((item, index) => {
+                                return (
+                                    <tr>
+                                    <th scope="row">{index+1}</th>
+                                    <td>{item.MrNumber}</td>
+                                    <td>{item.Name}</td>
+                                    <td>{item.Age}</td>
+                                    <td>{item.Gender}</td>
+                                    <td>{item.Consultation}</td>
+                                    <td>{item.phone}</td>
+                                    <td className = "databutton">
+                                        <button className = "databutton1" onClick = {() => navigate("/viewpatient")}>View</button>
+                                        <button className = "databutton2" onClick = {() => navigate("/viewpatient")}>Edit</button>
+                                    </td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                         </table>
                         {/* <!-- Right/End Aligned Pagination --> */}
@@ -386,7 +351,7 @@ function Patients() {
                         {/* <!-- End Table with stripped rows --> */}
                     
                         {/* <!-- Column rendering --> */}
-                        <div className="row">
+                        {/* <div className="row">
                         <div className="col-12">
                             <div className="card">
                                 <div className="card-body">
@@ -877,7 +842,7 @@ function Patients() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
                         
                     </div>
