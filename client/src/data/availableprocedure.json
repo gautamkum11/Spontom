@@ -1,0 +1,32 @@
+[{
+    "name" : "rTMS",
+    "specialist" : "H1 Coil",
+    "location" : "Banjara Hills",
+    "duration" : "15 mins" ,
+    "fee" : "Rs 2000",
+    "about" : "Description about the machine and the procedure"
+},
+{
+    "name" : "rTMS",
+    "specialist" : "H2 Coil",
+    "location" : "Banjara Hills",
+    "duration" : "15 mins" ,
+    "fee" : "Rs 2000",
+    "about" : "Description about the machine and the procedure"
+},
+{
+    "name" : "rTMS",
+    "specialist" : "H3 Coil",
+    "location" : "Banjara Hills",
+    "duration" : "15 mins" ,
+    "fee" : "Rs 2000",
+    "about" : "Description about the machine and the procedure"
+},
+{
+    "name" : "rTMS",
+    "specialist" : "H4 Coil",
+    "location" : "Banjara Hills",
+    "duration" : "15 mins" ,
+    "fee" : "Rs 2000",
+    "about" : "Description about the machine and the procedure"
+}]

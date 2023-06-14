@@ -77,6 +77,12 @@ input::placeholder {
     padding-left: 5rem;
 }
 
+.home4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .home6 {
     position: relative;
     font-size: 2rem;
@@ -161,6 +167,11 @@ input::placeholder {
 
 .home15 {
     width: 50%;
+}
+
+.homeimg {
+    width: 80%;
+    height: 100%;
 }
 
 
@@ -281,6 +292,7 @@ input::placeholder {
 .viewlabel {
     font-weight: 1000;
     font-size: 0.8rem;
+    color: black;
     margin: 0;
 }
 
@@ -423,4 +435,87 @@ input::placeholder {
     .viewp3{
         width: 100%;
     }
+}
+
+.book1 {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+}
+
+.book2,.book3 {
+    width: 50%;
+}
+
+.book4 {
+    display:  flex;
+    justify-content: space-between;
+    padding: 1rem;
+    column-gap: 2rem;
+}
+
+.book5 {
+    width: 50%;
+}
+
+.docshort1 {
+    background-color: white;
+    border-radius: 5px;
+    margin: 1rem;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    display: flex;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.docshort2 {
+    padding-left: 10px;
+}
+
+.docshortimg {
+    border-radius: 5px;
+    margin: 5px;
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.doclarge1 {
+    background-color: white;
+    border-radius: 5px;
+    margin: 1rem;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.book3-1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0 1rem 0;
+}
+
+.book3-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+    width: 8rem;
+    height: 2rem;
+}
+
+.book3 {
+    padding: 1rem 1rem 1rem 2rem;
+}
+
+.react-date-picker{
+    width: 100%;
+    padding: 1rem 0 1rem 0;
+}
+
+.book6 {
+    display: flex;
+    flex-direction: column;
+    padding-left: 1rem;
 }

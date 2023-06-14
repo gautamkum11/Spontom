@@ -10,7 +10,7 @@ function Appointmentdetails(props) {
     }
     return (
         <>
-            <div className = "actionbox1">
+            <div className = "actionbox1"> 
                 <div className = "actionbox2">
                     <p className = "viewfont">Appointment Details</p>
                     <a style = {{cursor: "pointer"}} onClick = {handleclick}><img src = {close} className = "actionimg"></img></a>

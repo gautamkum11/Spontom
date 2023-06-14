@@ -1,13 +1,15 @@
 import react from "react";
-import Addpatient from "./screens/Addpatient";
-import Home from "./screens/Home";
+import Addpatient from "./screens/Receptionist/Addpatient";
+import Home from "./screens/Receptionist/Home";
 import {Route, Routes} from "react-router-dom";
-import Doctorsavailability from "./screens/Doctorsavailability";
-import Patients from "./screens/Patients";
-import Userprofile from "./screens/Userprofile";
-import Lockscreen from "./screens/Lockscreen";
-import Login from "./screens/Login";
-import Viewpatient from "./screens/Viewpatient";
+import Doctorsavailability from "./screens/Receptionist/Doctorsavailability";
+import Patients from "./screens/Receptionist/Patients";
+import Userprofile from "./screens/Receptionist/Userprofile";
+import Lockscreen from "./screens/Receptionist/Lockscreen";
+import Login from "./screens/Receptionist/Login";
+import Viewpatient from "./screens/Receptionist/Viewpatient";
+import Bookappointment from "./screens/Receptionist/Bookappointment";
+import Bookprocedure from "./screens/Receptionist/Bookprocedure";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <Route path = "/lockscreen" element  = {<Lockscreen />} />
       <Route path = "/login" element  = {<Login />} />
       <Route path = "/viewpatient" element  = {<Viewpatient />} />
+      <Route path = "/bookappointment" element  = {<Bookappointment />} />
+      <Route path = "/bookprocedure" element  = {<Bookprocedure />} />
     </Routes>
   );
 }

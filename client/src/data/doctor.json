@@ -1,0 +1,40 @@
+[{
+    "docname" : "Dr. Lakshmi K",
+    "specialist" : "Psychiatrist",
+    "MCInumber" : "12345",
+    "Duration" : "15 mins",
+    "Fee" : "Rs 2000",
+    "Education" : "Psychiatric medication, MBBS",
+    "Location" : "Banjara Hills, Hyderabad",
+    "About" : "Dr Lakshmi K is a psychiatrist specialist at Asha Hospital in Hyderabad"
+},
+{
+    "docname" : "Dr. Laks K",
+    "specialist" : "Psychiatrist",
+    "MCInumber" : "12345",
+    "Duration" : "15 mins",
+    "Fee" : "Rs 2000",
+    "Education" : "Psychiatric medication, MBBS",
+    "Location" : "Banjara Hills, Hyderabad",
+    "About" : "Dr Lakshmi K is a psychiatrist specialist at Asha Hospital in Hyderabad"
+},
+{
+    "docname" : "Dr. gautam K",
+    "specialist" : "Psychiatrist",
+    "MCInumber" : "12345",
+    "Duration" : "15 mins",
+    "Fee" : "Rs 2000",
+    "Education" : "Psychiatric medication, MBBS",
+    "Location" : "Banjara Hills, Hyderabad",
+    "About" : "Dr Lakshmi K is a psychiatrist specialist at Asha Hospital in Hyderabad"
+},
+{
+    "docname" : "Dr. hello K",
+    "specialist" : "Psychiatrist",
+    "MCInumber" : "12345",
+    "Duration" : "15 mins",
+    "Fee" : "Rs 2000",
+    "Education" : "Psychiatric medication, MBBS",
+    "Location" : "Banjara Hills, Hyderabad",
+    "About" : "Dr Lakshmi K is a psychiatrist specialist at Asha Hospital in Hyderabad"
+}]

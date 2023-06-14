@@ -1,7 +1,7 @@
 import React from "react";
-import "../index.css";
-import img from "../img/TMS-2--min.webp";
-import check from "../img/check.png";
+import "../../index.css";
+import img from "../../img/TMS-2--min.webp";
+import check from "../../img/check.png";
 
 function Home(){
     return (
@@ -11,7 +11,6 @@ function Home(){
                     <div className="home3">
                         <div className="home4">
                             <div className="section-title mb-4">
-                                <h5 className="home6">About Us</h5>
                                 <h1 className="home7">Transforming Mental Health with Deep TMS System</h1>
                             </div>
                             <h4 className="home8">We believe that happiness begins in your mind, and we strive to provide you with the best possible treatment to achieve it.</h4>
@@ -47,9 +46,9 @@ function Home(){
                             </div>
                         </div>
                         <div className="home15">
-                            <div className="position-relative h-100">
-                                <img className="position-absolute w-75 rounded wow zoomIn" data-wow-delay="0.9s" src = {img} style={{objectFit: "cover"}} />
-                            </div>
+                            {/* <div className="position-relative h-100"> */}
+                                <img className="homeimg" data-wow-delay="0.9s" src = {img} style={{objectFit: "cover"}} />
+                            {/* </div> */}
                         </div>
                     </div>
                 </div>

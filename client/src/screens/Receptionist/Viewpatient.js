@@ -1,13 +1,15 @@
 import React,{useState} from "react";
-import "../index.css";
-import logoimg from "../assets/img/logo.png";
-import data from "../data/appointment.json";
-import data1 from "../data/procedure.json";
-import data3 from "../data/billing.json";
-import profileimg from "../assets/img/profile-img.jpg";
-import Appointmentdetails from "../components/Appointmentdetails";
+import "../../index.css";
+import logoimg from "../../assets/img/logo.png";
+import data from "../../data/appointment.json";
+import data1 from "../../data/procedure.json";
+import data3 from "../../data/billing.json";
+import profileimg from "../../assets/img/profile-img.jpg";
+import Appointmentdetails from "../../components/Appointmentdetails";
+import {useNavigate}from "react-router-dom";
 
 function Viewpatient() {
+    const navigate = useNavigate();
     const [isshown,setisshown] = useState(false);
 
     const closeaction = (val) => {
@@ -208,7 +210,6 @@ function Viewpatient() {
             {/* <!-- End Icons Navigation --> */}
 
             </header>
-
             <div className = "viewp1">
                 {isshown && <Appointmentdetails name = {isshown} oncheck = {closeaction} />}
                 <div className = "viewp1-1">
@@ -276,14 +277,14 @@ function Viewpatient() {
                                     
 
                                     <div style = {{display: "flex", justifyContent : "space-between"}}>
-                                        <div className="search-bar" style = {{padding: "10px"}}>
+                                        <div className="search-bar" style = {{padding: "1rem"}}>
                                         <form className="search-form d-flex align-items-center" method="POST" action="#">
-                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
-                                            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" style = {{width : "100%",border : "1px solid rgba(1, 41, 112, 0.2)", borderRadius: "3px"}} />
+                                            <button type="submit" title="Search" style = {{marginLeft:"-30px", background: "none", border : "0px", padding : "0px"}}><i className="bi bi-search"></i></button>
                                         </form>
                                         </div>
                                         <div style = {{display: "flex",alignItems: "center",columnGap: "1rem"}}>
-                                            <button className = "viewbutton">New Appointment</button>
+                                            <button className = "viewbutton" onClick = {() => navigate("/bookappointment")}>New Appointment</button>
                                             <button className = "viewbutton">Upcoming</button>
                                             <button className = "viewbutton">History</button>
                                         </div>
@@ -347,14 +348,14 @@ function Viewpatient() {
                                     
 
                                     <div style = {{display: "flex", justifyContent : "space-between"}}>
-                                        <div className="search-bar" style = {{padding: "10px"}}>
+                                        <div className="search-bar">
                                         <form className="search-form d-flex align-items-center" method="POST" action="#">
-                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
-                                            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" style = {{width : "100%",border : "1px solid rgba(1, 41, 112, 0.2)", borderRadius: "3px"}} />
+                                            <button type="submit" title="Search" style = {{marginLeft:"-30px", background: "none", border : "0px", padding : "0px"}}><i className="bi bi-search"></i></button>
                                         </form>
                                         </div>
                                         <div style = {{display: "flex",alignItems: "center",columnGap: "1rem"}}>
-                                            <button className = "viewbutton">Book Procedure</button>
+                                            <button className = "viewbutton" onClick = {() => navigate("/bookprocedure")}>Book Procedure</button>
                                             <button className = "viewbutton">Upcoming</button>
                                             <button className = "viewbutton">History</button>
                                         </div>
@@ -414,14 +415,14 @@ function Viewpatient() {
                                     
 
                                     <div style = {{display: "flex", justifyContent : "space-between"}}>
-                                        <div className="search-bar" style = {{padding: "10px"}}>
+                                        <div className="search-bar">
                                         <form className="search-form d-flex align-items-center" method="POST" action="#">
-                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" />
-                                            <button type="submit" title="Search"><i className="bi bi-search"></i></button>
+                                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" style = {{width : "100%",border : "1px solid rgba(1, 41, 112, 0.2)", borderRadius: "3px"}} />
+                                            <button type="submit" title="Search" style = {{marginLeft:"-30px", background: "none", border : "0px", padding : "0px"}}><i className="bi bi-search"></i></button>
                                         </form>
                                         </div>
                                         <div style = {{display: "flex",alignItems: "center",columnGap: "1rem"}}>
-                                            <button className = "viewbutton">Book Procedure</button>
+                                            <button className = "viewbutton" onClick = {() => navigate("/bookprocedure")}>Book Procedure</button>
                                             <button className = "viewbutton">Upcoming</button>
                                             <button className = "viewbutton">History</button>
                                         </div>
@@ -483,7 +484,6 @@ function Viewpatient() {
                     </div>
                     </div>
                 </div>
-               
             </div>
         </>
     );
