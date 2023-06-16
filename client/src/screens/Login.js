@@ -1,8 +1,10 @@
 import React from "react";
-import "../../index.css";
-import "../../assets/css/style.css";
+import "../index.css";
+import "../assets/css/style.css";
+import {useNavigate} from "react-router-dom";
 
 function Login() {
+    const navigate = useNavigate();
     return (
         <>
             <div className="container-fluid">
@@ -57,6 +59,15 @@ function Login() {
 
                                 <div className="col-12">
                                     <p className="small mb-0">Don't have an account? <a href="pages-register.html">Create an account</a></p>
+                                </div>
+                                <div style = {{display: "flex",justifyContent: "center",columnGap: "1rem",width: "100%", marginTop: "1rem"}}>
+                                    <button className = "actionbutton" onClick = {() => navigate("/")} >Admin</button>
+                                    <button className = "actionbutton" onClick = {() => navigate("/receptionist/dashboard")}>Receptionist</button>
+                                    <button className = "actionbutton" onClick = {() => navigate("/doctor/dashboard")}>Doctor</button>
+                                </div>
+                                <div style = {{display: "flex",justifyContent: "center",columnGap: "1rem" ,width: "100%", marginTop: "1rem"}}>
+                                    <button className = "actionbutton" onClick = {() => navigate("/assistant/dashboard")}>Assistant</button>
+                                    <button className = "actionbutton" onClick = {() => navigate("/billing/dashboard")}>Billing</button>
                                 </div>
                                 </form>
                             </div>

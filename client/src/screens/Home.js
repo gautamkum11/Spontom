@@ -1,7 +1,7 @@
 import React from "react";
-import "../../index.css";
-import img from "../../img/TMS-2--min.webp";
-import check from "../../img/check.png";
+import "../index.css";
+import img from "../img/TMS-2--min.webp";
+import check from "../img/check.png";
 
 function Home(){
     return (

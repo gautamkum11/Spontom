@@ -1,26 +1,28 @@
-import React,{useState} from "react";
-import "../../index.css";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import Proclarge from "../../components/Proclarge";
+import "../../index.css";
+import data from "../../data/doctor.json";
+import Docshort from "../../components/Docshort.js";
+import Doclarge from "../../components/Doclarge.js";
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import Select from 'react-select'
-import data from "../../data/availableprocedure.json";
-import Procshort from "../../components/Procshort";
-import Sidebar from "../../components/Sidebar_Receptionist";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import daydata from "../../data/daydata.json";
+import Sidebar_Assistant from "../../components/Sidebar_Assistant";
 
-function Bookprocedure() {
+
+
+function Bookappointment_Assistant() {
     const [shown,setshown] = useState(false);
     const [dataindex,setdataindex] = useState(null);
     const [value, onChange] = useState(new Date());
     const [options,setoptions] = useState([]);
-
+    
     const handlechange = (event) => {
         const day1 = event.target.value;
         daydata.map((items) => {
@@ -36,41 +38,39 @@ function Bookprocedure() {
         setdataindex(val);
     }
 
-    
-
     return (
         <>
-            <Navbar />
-            <Sidebar />
+            <Navbar />  
+            <Sidebar_Assistant />
             <main id="main" className="main">
             <div className="pagetitle a2" style = {{margin:"1rem 0 1rem 0"}}>
-                <h1>Book Procedure</h1>
+                <h1>Book Appointment</h1>
             </div>
 
             <div className = "book1">
                 <div className = "book2">
-                    <div className="search-bar" style = {{padding: "1rem"}}>
-                    <form className="search-form d-flex align-items-center" method="POST" action="#">
-                        <input type="text" name="query" placeholder="Search" title="Enter search keyword" style = {{width : "50%",border : "1px solid rgba(1, 41, 112, 0.2)", borderRadius: "3px"}} />
-                        <button type="submit" title="Search" style = {{marginLeft:"-30px", background: "none", border : "0px", padding : "0px"}}><i className="bi bi-search"></i></button>
-                    </form>
-                    </div>
+                        <div className="search-bar" style = {{padding: "1rem"}}>
+                        <form className="search-form d-flex align-items-center" method="POST" action="#">
+                            <input type="text" name="query" placeholder="Search" title="Enter search keyword" style = {{width : "50%",border : "1px solid rgba(1, 41, 112, 0.2)", borderRadius: "3px"}} />
+                            <button type="submit" title="Search" style = {{marginLeft:"-30px", background: "none", border : "0px", padding : "0px"}}><i className="bi bi-search"></i></button>
+                        </form>
+                        </div>
                     <div className = "book4">
                         <div className = "book5">
-                            <p className = "viewfont">Available Procedure</p>
+                            <p className = "viewfont">Available Doctors</p>
                             {data && data.map((item, index) => {
                                 return (
-                                   <Procshort index = {index} name = {item.name} specialist = {item.specialist} location = {item.location} oncheck = {openaction} /> 
+                                   <Docshort index = {index} name = {item.docname} specialist = {item.specialist} location = {item.Location} oncheck = {openaction} /> 
                                 );
                             })}
                         </div>
                         <div className = "book5">
-                            <p className = "viewfont">Chosen Procedure</p>
+                            <p className = "viewfont">Chosen Doctor</p>
                             {shown && data && data.map((item, index) => {
                                 if(index === dataindex)
                                 {
                                     return (
-                                        <Proclarge name = {item.name} specialist = {item.specialist} location = {item.location}  duration = {item.duration} fee = {item.fee} about = {item.about} /> 
+                                        <Doclarge name = {item.docname} specialist = {item.specialist} location = {item.Location} mci = {item.MCInumber} duration = {item.Duration} fee = {item.Fee} about = {item.About} education = {item.Education} /> 
                                     );
                                 }
                             })}
@@ -119,4 +119,4 @@ function Bookprocedure() {
     );
 }
 
-export default Bookprocedure;
+export default Bookappointment_Assistant;

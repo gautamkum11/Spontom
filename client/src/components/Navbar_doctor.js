@@ -2,7 +2,7 @@ import React from "react";
 import logoimg from "../assets/img/logo.png";
 import img1 from "../assets/img/profile-img.jpg";
 
-function Navbar() {
+function Navbar_doctor() {
     return (
         <>
             <header id="header" className="header fixed-top d-flex align-items-center">
@@ -132,21 +132,21 @@ function Navbar() {
 
                 <a className="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
                     <img src={img1} alt="Profile" className="rounded-circle" />
-                    <span className="d-none d-md-block dropdown-toggle ps-2">Receptionist</span>
+                    <span className="d-none d-md-block dropdown-toggle ps-2">Doctor</span>
                 </a>
                 {/* <!-- End Profile Iamge Icon --> */}
 
                 <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                     <li className="dropdown-header">
-                    <h6>Receptionist Name</h6>
-                    <span>Receptionist</span>
+                    <h6>Doctor Name</h6>
+                    <span>Doctor</span>
                     </li>
                     <li>
                     <hr className="dropdown-divider" />
                     </li>
 
                     <li>
-                    <a className="dropdown-item d-flex align-items-center" href="/receptionist/userprofile">
+                    <a className="dropdown-item d-flex align-items-center" href="/doctor/userprofile">
                         <i className="bi bi-person"></i>
                         <span>My Profile</span>
                     </a>
@@ -156,7 +156,7 @@ function Navbar() {
                     </li>
 
                     <li>
-                    <a className="dropdown-item d-flex align-items-center" href="/receptionist/userprofile">
+                    <a className="dropdown-item d-flex align-items-center" href="/doctor/userprofile">
                         <i className="bi bi-gear"></i>
                         <span>Account Settings</span>
                     </a>
@@ -196,4 +196,4 @@ function Navbar() {
     );
 }
 
-export default Navbar;
+export default Navbar_doctor;

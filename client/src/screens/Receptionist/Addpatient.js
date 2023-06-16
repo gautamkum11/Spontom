@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import "../../index.css";
 import "../../assets/css/style.css";
 import Navbar from "../../components/Navbar.js";
-
+import Sidebar from "../../components/Sidebar_Receptionist.js";
+ 
 function Addpatient() {
     const [toggle, setToggle] = useState(true);
 
@@ -16,7 +17,7 @@ function Addpatient() {
     return (
         <>
             <Navbar />
-
+            <Sidebar />
             <main id="main" className="main">
 
             <div className="pagetitle a2">

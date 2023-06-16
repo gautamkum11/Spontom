@@ -519,3 +519,42 @@ input::placeholder {
     flex-direction: column;
     padding-left: 1rem;
 }
+
+.calendar-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    transition: all 0.25s;
+}
+
+.sidebar-body {
+    height: 100%;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 4rem;
+}
+
+.calendar-body {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 300px;
+    transition: all 0.25s;
+    margin-top: 4rem;
+}
+
+.fc {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.fc-event-title {
+    color: black;
+}
+

@@ -4,13 +4,14 @@ import "../../assets/css/style.css";
 import data from "../../data/patient.json";
 import {useNavigate} from "react-router-dom";
 import Navbar from "../../components/Navbar.js";
+import Sidebar from "../../components/Sidebar_Receptionist";
 
 function Patients() {
     const navigate = useNavigate();
     return (
         <>
             <Navbar />
-
+            <Sidebar />
             <main id="main" className="main">
 
             <div className="pagetitle a2" >
@@ -25,7 +26,7 @@ function Patients() {
             </div>
             
             <div>
-                <a className="btn btn-primary a3" href = "/addpatient"><i className="bi bi-person-plus"></i>  Add Patient</a> 
+                <a className="btn btn-primary a3" href = "/receptionist/addpatient"><i className="bi bi-person-plus"></i>  Add Patient</a> 
             </div>
             
             
@@ -73,8 +74,8 @@ function Patients() {
                                     <td>{item.Consultation}</td>
                                     <td>{item.phone}</td>
                                     <td className = "databutton">
-                                        <button className = "databutton1" onClick = {() => navigate("/viewpatient")}>View</button>
-                                        <button className = "databutton2" onClick = {() => navigate("/viewpatient")}>Edit</button>
+                                        <button className = "databutton1" onClick = {() => navigate("/receptionist/viewpatient")}>View</button>
+                                        <button className = "databutton2" onClick = {() => navigate("/receptionist/viewpatient")}>Edit</button>
                                     </td>
                                     </tr>
                                 );

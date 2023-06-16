@@ -1,23 +1,21 @@
-import React, { useEffect, useState } from "react";
-import Navbar from "../../components/Navbar";
+import React,{useState} from "react";
+import Sidebar_doctor from "../../components/Sidebar_doctor.js";
 import "../../index.css";
-import data from "../../data/doctor.json";
-import Docshort from "../../components/Docshort.js";
 import Doclarge from "../../components/Doclarge.js";
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
-import Select from 'react-select'
-import Sidebar from "../../components/Sidebar_Receptionist";
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import daydata from "../../data/daydata.json";
+import profileimg from "../../assets/img/profile-img.jpg";
+import {useNavigate} from "react-router-dom";
+import Navbar_doctor from "../../components/Navbar_doctor.js";
 
-
-
-function Bookappointment() {
+function Bookappointment_doctor(){
+    const navigate = useNavigate();
     const [shown,setshown] = useState(false);
     const [dataindex,setdataindex] = useState(null);
     const [value, onChange] = useState(new Date());
@@ -37,11 +35,10 @@ function Bookappointment() {
         setshown(true);
         setdataindex(val);
     }
-
     return (
         <>
-            <Navbar />  
-            <Sidebar />
+            <Navbar_doctor />
+            <Sidebar_doctor />
             <main id="main" className="main">
             <div className="pagetitle a2" style = {{margin:"1rem 0 1rem 0"}}>
                 <h1>Book Appointment</h1>
@@ -57,23 +54,52 @@ function Bookappointment() {
                         </div>
                     <div className = "book4">
                         <div className = "book5">
-                            <p className = "viewfont">Available Doctors</p>
-                            {data && data.map((item, index) => {
-                                return (
-                                   <Docshort index = {index} name = {item.docname} specialist = {item.specialist} location = {item.Location} oncheck = {openaction} /> 
-                                );
-                            })}
+                            <p className = "viewfont">Patient</p>
+                            <div className = "viewp1-1" style = {{width: "100%",marginTop: "0",padding:"0 1rem 0 1rem"}}>
+                                <div className = "viewp2" style = {{padding: "0"}}>
+                                    <img className = "viewimg" src = {profileimg}></img>
+                                    <p className = "viewfont">Patient Name</p>
+                                </div>
+                                <div>
+                                    <div className = "viewfont2">
+                                            <p className = "viewlabel">MR No :</p>
+                                            <p className = "viewans">12345</p>
+                                        </div>
+                                        <div className = "viewfont2">
+                                            <p className = "viewlabel">OP No :</p>
+                                            <p className = "viewans">12345</p>
+                                        </div>
+                                    <div className = "viewfont2">
+                                        <p className = "viewlabel">Gender :</p>
+                                        <p className = "viewans">Male</p>
+                                    </div>
+                                    <div className = "viewfont2">
+                                        <p className = "viewlabel">Age :</p>
+                                        <p className = "viewans">27</p>
+                                    </div>
+                                    <div className = "viewfont2">
+                                        <p className = "viewlabel">Guardian :</p>
+                                        <p className = "viewans">Guardian Name(relation)</p>
+                                    </div>
+                                    <div className = "viewfont2">
+                                        <p className = "viewlabel">Phone :</p>
+                                        <p className = "viewans">9876543211</p>
+                                    </div>
+                                </div>
+                                <div className = "viewline"></div>
+                                <div className = "viewfont2">
+                                        <p className = "viewlabel">Last Consultation :</p>
+                                        <p className = "viewans">16:00 - 16:10 PM, 22, Dec, 2022</p>
+                                </div>
+                                <div className = "viewfont2">
+                                        <p className = "viewlabel">Consultant :</p>
+                                        <p className = "viewans">Dr. Amit Singh (MRN)</p>
+                                </div>
+                            </div>
                         </div>
                         <div className = "book5">
-                            <p className = "viewfont">Chosen Doctor</p>
-                            {shown && data && data.map((item, index) => {
-                                if(index === dataindex)
-                                {
-                                    return (
-                                        <Doclarge name = {item.docname} specialist = {item.specialist} location = {item.Location} mci = {item.MCInumber} duration = {item.Duration} fee = {item.Fee} about = {item.About} education = {item.Education} /> 
-                                    );
-                                }
-                            })}
+                            <p className = "viewfont">Doctor</p>
+                            <Doclarge name = "Dr. Lakshmi K" specialist = "Psychiatrist" location = "Banjara Hills, Hyderabad" mci = "12345" duration = "15 mins" fee = "Rs 2000" about = "Dr Lakshmi K is a psychiatrist specialist at Asha Hospital in Hyderabad" education = "Psychiatric medication, MBBS" /> 
                         </div>
                     </div>
                 </div>
@@ -110,7 +136,7 @@ function Bookappointment() {
                             })}
                     </select>
                     <div style = {{padding: "1rem",marginTop: "2rem", display: "flex",justifyContent:"center"}}>
-                        <button className = "actionbutton">Confirm</button>
+                        <button className = "actionbutton" onClick = {() => navigate("/confirmappointment")}>Confirm</button>
                     </div>
                 </div>
             </div>
@@ -119,4 +145,4 @@ function Bookappointment() {
     );
 }
 
-export default Bookappointment;
+export default Bookappointment_doctor;

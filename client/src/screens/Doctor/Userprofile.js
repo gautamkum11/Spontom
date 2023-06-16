@@ -1,26 +1,17 @@
 import React from "react";
-import "../../index.css";
-import "../../assets/css/style.css";
-import Navbar from "../../components/Navbar.js";
-import Sidebar from "../../components/Sidebar_Receptionist";
+import Sidebar_doctor from "../../components/Sidebar_doctor.js";
 import profileimg from "../../assets/img/profile-img.jpg";
+import Navbar_doctor from "../../components/Navbar_doctor";
 
-function Userprofile() {
+function Userprofile_doctor() {
     return (
         <>
-            <Navbar />
-            <Sidebar />
+            <Navbar_doctor />
+            <Sidebar_doctor />
             <main id="main" className="main">
 
             <div class="pagetitle">
             <h1>Profile</h1>
-            <nav>
-                <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="/">Home</a></li>
-                <li className="breadcrumb-item">Users</li>
-                <li className="breadcrumb-item active">Profile</li>
-                </ol>
-            </nav>
             </div>
             {/* <!-- End Page Title --> */}
 
@@ -32,8 +23,8 @@ function Userprofile() {
                     <div className="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
                     <img src={profileimg} alt="Profile" className="rounded-circle" />
-                    <h2>Receptionist Name</h2>
-                    <h3>Receptionist</h3>
+                    <h2>Doctor Name</h2>
+                    <h3>Doctor</h3>
                     <div className="social-links mt-2">
                         <a href="#" className="twitter"><i className="bi bi-twitter"></i></a>
                         <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
@@ -61,7 +52,7 @@ function Userprofile() {
                         </li>
 
                         <li className="nav-item">
-                        <button className="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                        <button className="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Notifications</button>
                         </li>
 
                         <li className="nav-item">
@@ -144,23 +135,23 @@ function Userprofile() {
                             </div>
 
                             <div className="row mb-3">
-                            <label for="company" className="col-md-4 col-lg-3 col-form-label">Company</label>
+                            <label for="company" className="col-md-4 col-lg-3 col-form-label">MRN Number</label>
                             <div className="col-md-8 col-lg-9">
-                                <input name="company" type="text" className="form-control" id="company" value="Lueilwitz, Wisoky and Leuschke" />
+                                <input name="company" type="text" className="form-control" id="company" value="1428958" />
                             </div>
                             </div>
 
                             <div className="row mb-3">
-                            <label for="Job" className="col-md-4 col-lg-3 col-form-label">Job</label>
+                            <label for="Job" className="col-md-4 col-lg-3 col-form-label">Hospital Location</label>
                             <div className="col-md-8 col-lg-9">
-                                <input name="job" type="text" className="form-control" id="Job" value="Web Designer" />
+                                <input name="job" type="text" className="form-control" id="Job" value="Jubilee Hills" />
                             </div>
                             </div>
 
                             <div className="row mb-3">
-                            <label for="Country" className="col-md-4 col-lg-3 col-form-label">Country</label>
+                            <label for="Country" className="col-md-4 col-lg-3 col-form-label">Slot Duration</label>
                             <div className="col-md-8 col-lg-9">
-                                <input name="country" type="text" className="form-control" id="Country" value="USA" />
+                                <input name="country" type="text" className="form-control" id="Country" value="15 mins" />
                             </div>
                             </div>
 
@@ -227,37 +218,35 @@ function Userprofile() {
                         <form>
 
                             <div className="row mb-3">
-                            <label for="fullName" className="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
+                            <label for="fullName" className="actionfont" style = {{fontSize: "1.5rem",marginBottom: "1rem"}} >Account Notifications</label>
+                            <p className = "viewans" style = {{marginBottom: "1rem", fontSize: "1rem"}}>We will send notifications to inform you of any updates and/or changes as events occur for your appointments in ANMC. Select which notifications you want to recieve below :</p>
                             <div className="col-md-8 col-lg-9">
                                 <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="changesMade" checked />
-                                <label className="form-check-label" for="changesMade">
-                                    Changes made to your account
+                                <label className="actionfont" for="changesMade">
+                                    New Appointments
                                 </label>
+                                <p>when new appointments are not booked</p>
                                 </div>
                                 <div className="form-check">
-                                <input className="form-check-input" type="checkbox" id="newProducts" checked />
-                                <label className="form-check-label" for="newProducts">
-                                    Information on new products and services
+                                <input className="form-check-input" type="checkbox" id="newProducts"  />
+                                <label className="actionfont" for="newProducts">
+                                    Cancel Appointments
                                 </label>
+                                <p>when any appointments get canceled</p>
                                 </div>
                                 <div className="form-check">
                                 <input className="form-check-input" type="checkbox" id="proOffers" />
-                                <label className="form-check-label" for="proOffers">
-                                    Marketing and promo offers
+                                <label className="actionfont" for="proOffers">
+                                    Appointment Transfer
                                 </label>
-                                </div>
-                                <div className="form-check">
-                                <input className="form-check-input" type="checkbox" id="securityNotify" checked disabled />
-                                <label className="form-check-label" for="securityNotify">
-                                    Security alerts
-                                </label>
+                                <p>when any appointments are transferred to my account</p>
                                 </div>
                             </div>
                             </div>
 
                             <div className="text-center">
-                            <button type="submit" className="btn btn-primary">Save Changes</button>
+                            <button type="submit" className="btn btn-primary">Update</button>
                             </div>
                         </form>
                         {/* <!-- End settings Form --> */}
@@ -307,21 +296,21 @@ function Userprofile() {
             </div>
             </section>
 
-        </main>
-        {/* <!-- End #main --> */}
+            </main>
+            {/* <!-- End #main --> */}
 
-        {/* <!-- ======= Footer ======= --> */}
-        <footer id="footer" className="footer" style = {{position: "relative", width: "80%"}}>
+            {/* <!-- ======= Footer ======= --> */}
+            <footer id="footer" className="footer" style = {{position: "relative", width: "80%"}}>
             <div className="copyright">
             &copy; Copyright <strong><span>ANC</span></strong>. All Rights Reserved
             </div>
-        </footer>
-        {/* <!-- End Footer --> */}
+            </footer>
+            {/* <!-- End Footer --> */}
 
 
-        <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
+            <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
         </>
     );
 }
 
-export default Userprofile;
+export default Userprofile_doctor;

@@ -1,540 +1,179 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import "../../index.css";
-import Reportchart from "../../charts/Reportchart";
-import Budgetchart from "../../charts/Budgetchart";
-import Trafficchart from "../../charts/Trafficchart";
 import Navbar from "../../components/Navbar.js";
+import Sidebar from "../../components/Sidebar_Receptionist";
+// import Avatar from "../../components/Avatar";
+// import ReactDatePicker from "react-date-picker";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from '@fullcalendar/timegrid';
+import { Button, Col, Form, Modal, Nav, Row } from "react-bootstrap";
+import PerfectScrollbar from "react-perfect-scrollbar";
+// import { Link } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+
+import {
+    calendarEvents,
+    birthdayEvents,
+    holidayEvents,
+    discoveredEvents,
+    meetupEvents,
+    otherEvents
+  } from "../../data/CalendarEvents";
+
 
 function Doctorsavailability() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        document.body.classList.add('app-calendar');
+        return () => {
+          document.body.classList.remove('app-calendar');
+        }
+      }, []);
+    
+      const [startDate, setStartDate] = useState(new Date());
+    
+      // toggle sidebar calendar
+      const [isSidebarShow, setSidebarShow] = useState(false);
+    
+      // Modal
+      const [modalShow, setModalShow] = useState(false);
+      const handleModalClose = () => setModalShow(false);
+      const handleModalShow = () => setModalShow(true);
+    
     return (
         <>
             <Navbar />
-
-            <main id="main" className="main">
-
-            <div className="pagetitle">
-            <h1>Dashboard</h1>
-            <nav>
-                <ol className="breadcrumb">
-                <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li className="breadcrumb-item active">Dashboard</li>
-                </ol>
-            </nav>
+            {/* <Sidebar /> */}
+      <div className={"main main-calendar" + (isSidebarShow ? " show" : "")} style = {{marginTop: "5rem"}}>
+        <div className="calendar-sidebar">
+          <PerfectScrollbar className="sidebar-body">
+            <div className="d-grid mb-3">
+              <Button variant="primary" onClick={handleModalShow}>Create New Event</Button>
             </div>
-            {/* <!-- End Page Title --> */}
 
-            <section className="section dashboard">
-            <div className="row">
-
-                {/* <!-- Left side columns --> */}
-                <div className="col-lg-8">
-                <div className="row">
-
-                    {/* <!-- Sales Card --> */}
-                    <div className="col-xxl-4 col-md-6">
-                    <div className="card info-card sales-card">
-
-                        <div className="filter">
-                        <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li className="dropdown-header text-start">
-                            <h6>Filter</h6>
-                            </li>
-
-                            <li><a className="dropdown-item" href="#">Today</a></li>
-                            <li><a className="dropdown-item" href="#">This Month</a></li>
-                            <li><a className="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                        </div>
-
-                        <div className="card-body">
-                        <h5 className="card-title">Sales <span>| Today</span></h5>
-
-                        <div className="d-flex align-items-center">
-                            <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i className="bi bi-cart"></i>
-                            </div>
-                            <div className="ps-3">
-                            <h6>145</h6>
-                            <span className="text-success small pt-1 fw-bold">12%</span> <span className="text-muted small pt-2 ps-1">increase</span>
-
-                            </div>
-                        </div>
-                        </div>
-
-                    </div>
-                    </div>
-                    {/* <!-- End Sales Card --> */}
-
-                    {/* <!-- Revenue Card --> */}
-                    <div className="col-xxl-4 col-md-6">
-                    <div className="card info-card revenue-card">
-
-                        <div className="filter">
-                        <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li className="dropdown-header text-start">
-                            <h6>Filter</h6>
-                            </li>
-
-                            <li><a className="dropdown-item" href="#">Today</a></li>
-                            <li><a className="dropdown-item" href="#">This Month</a></li>
-                            <li><a className="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                        </div>
-
-                        <div className="card-body">
-                        <h5 className="card-title">Revenue <span>| This Month</span></h5>
-
-                        <div className="d-flex align-items-center">
-                            <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i className="bi bi-currency-dollar"></i>
-                            </div>
-                            <div className="ps-3">
-                            <h6>$3,264</h6>
-                            <span className="text-success small pt-1 fw-bold">8%</span> <span className="text-muted small pt-2 ps-1">increase</span>
-
-                            </div>
-                        </div>
-                        </div>
-
-                    </div>
-                    </div>
-                    {/* <!-- End Revenue Card --> */}
-
-                    {/* <!-- Customers Card --> */}
-                    <div className="col-xxl-4 col-xl-12">
-
-                    <div className="card info-card customers-card">
-
-                        <div className="filter">
-                        <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li className="dropdown-header text-start">
-                            <h6>Filter</h6>
-                            </li>
-
-                            <li><a className="dropdown-item" href="#">Today</a></li>
-                            <li><a className="dropdown-item" href="#">This Month</a></li>
-                            <li><a className="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                        </div>
-
-                        <div className="card-body">
-                        <h5 className="card-title">Customers <span>| This Year</span></h5>
-
-                        <div className="d-flex align-items-center">
-                            <div className="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i className="bi bi-people"></i>
-                            </div>
-                            <div className="ps-3">
-                            <h6>1244</h6>
-                            <span className="text-danger small pt-1 fw-bold">12%</span> <span className="text-muted small pt-2 ps-1">decrease</span>
-
-                            </div>
-                        </div>
-
-                        </div>
-                    </div>
-
-                    </div>
-                    {/* <!-- End Customers Card --> */}
-
-                    {/* <!-- Reports --> */}
-                    <div className="col-12">
-                    <div className="card">
-
-                        <div className="filter">
-                        <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li className="dropdown-header text-start">
-                            <h6>Filter</h6>
-                            </li>
-
-                            <li><a className="dropdown-item" href="#">Today</a></li>
-                            <li><a className="dropdown-item" href="#">This Month</a></li>
-                            <li><a className="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                        </div>
-
-                        <div className="card-body">
-                        <h5 className="card-title">Reports <span>/Today</span></h5>
-
-                        {/* <!-- Line Chart --> */}
-                        <div>
-                            <Reportchart />
-                        </div>
-
-                        {/* <!-- End Line Chart --> */}
-
-                        </div>
-
-                    </div>
-                    </div>
-                    {/* <!-- End Reports --> */}
-
-                    {/* <!-- Recent Sales --> */}
-                    <div className="col-12">
-                    <div className="card recent-sales overflow-auto">
-
-                        <div className="filter">
-                        <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li className="dropdown-header text-start">
-                            <h6>Filter</h6>
-                            </li>
-
-                            <li><a className="dropdown-item" href="#">Today</a></li>
-                            <li><a className="dropdown-item" href="#">This Month</a></li>
-                            <li><a className="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                        </div>
-
-                        <div className="card-body">
-                        <h5 className="card-title">Recent Sales <span>| Today</span></h5>
-
-                        <table className="table table-borderless datatable">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Customer</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row"><a href="#">#2457</a></th>
-                                <td>Brandon Jacob</td>
-                                <td><a href="#" className="text-primary">At praesentium minu</a></td>
-                                <td>$64</td>
-                                <td><span className="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2147</a></th>
-                                <td>Bridie Kessler</td>
-                                <td><a href="#" className="text-primary">Blanditiis dolor omnis similique</a></td>
-                                <td>$47</td>
-                                <td><span className="badge bg-warning">Pending</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2049</a></th>
-                                <td>Ashleigh Langosh</td>
-                                <td><a href="#" className="text-primary">At recusandae consectetur</a></td>
-                                <td>$147</td>
-                                <td><span className="badge bg-success">Approved</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Angus Grady</td>
-                                <td><a href="#" className="text-primar">Ut voluptatem id earum et</a></td>
-                                <td>$67</td>
-                                <td><span className="badge bg-danger">Rejected</span></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#">#2644</a></th>
-                                <td>Raheem Lehner</td>
-                                <td><a href="#" className="text-primary">Sunt similique distinctio</a></td>
-                                <td>$165</td>
-                                <td><span className="badge bg-success">Approved</span></td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                        </div>
-
-                    </div>
-                    </div>
-                    {/* <!-- End Recent Sales --> */}
-
-                    {/* <!-- Top Selling --> */}
-                    <div className="col-12">
-                    <div className="card top-selling overflow-auto">
-
-                        <div className="filter">
-                        <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                        <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li className="dropdown-header text-start">
-                            <h6>Filter</h6>
-                            </li>
-
-                            <li><a className="dropdown-item" href="#">Today</a></li>
-                            <li><a className="dropdown-item" href="#">This Month</a></li>
-                            <li><a className="dropdown-item" href="#">This Year</a></li>
-                        </ul>
-                        </div>
-
-                        <div className="card-body pb-0">
-                        <h5 className="card-title">Top Selling <span>| Today</span></h5>
-
-                        <table className="table table-borderless">
-                            <thead>
-                            <tr>
-                                <th scope="col">Preview</th>
-                                <th scope="col">Product</th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Sold</th>
-                                <th scope="col">Revenue</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt="" /></a></th>
-                                <td><a href="#" className="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                                <td>$64</td>
-                                <td className="fw-bold">124</td>
-                                <td>$5,828</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt="" /></a></th>
-                                <td><a href="#" className="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                                <td>$46</td>
-                                <td className="fw-bold">98</td>
-                                <td>$4,508</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt="" /></a></th>
-                                <td><a href="#" className="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                                <td>$59</td>
-                                <td className="fw-bold">74</td>
-                                <td>$4,366</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt="" /></a></th>
-                                <td><a href="#" className="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                                <td>$32</td>
-                                <td className="fw-bold">63</td>
-                                <td>$2,016</td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt="" /></a></th>
-                                <td><a href="#" className="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                                <td>$79</td>
-                                <td className="fw-bold">41</td>
-                                <td>$3,239</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
-                        </div>
-
-                    </div>
-                    </div>
-                    {/* <!-- End Top Selling --> */}
-
-                </div>
-                </div>
-                {/* <!-- End Left side columns --> */}
-
-                {/* <!-- Right side columns --> */}
-                <div className="col-lg-4">
-
-                {/* <!-- Recent Activity --> */}
-                <div className="card">
-                    <div className="filter">
-                    <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                    <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li className="dropdown-header text-start">
-                        <h6>Filter</h6>
-                        </li>
-
-                        <li><a className="dropdown-item" href="#">Today</a></li>
-                        <li><a className="dropdown-item" href="#">This Month</a></li>
-                        <li><a className="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                    </div>
-
-                    <div className="card-body">
-                    <h5 className="card-title">Recent Activity <span>| Today</span></h5>
-
-                    <div className="activity">
-
-                        <div className="activity-item d-flex">
-                        <div className="activite-label">32 min</div>
-                        <i className='bi bi-circle-fill activity-badge text-success align-self-start'></i>
-                        <div className="activity-content">
-                            Quia quae rerum <a href="#" className="fw-bold text-dark">explicabo officiis</a> beatae
-                        </div>
-                        </div>
-                        {/* <!-- End activity item--> */}
-
-                        <div className="activity-item d-flex">
-                        <div className="activite-label">56 min</div>
-                        <i className='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
-                        <div className="activity-content">
-                            Voluptatem blanditiis blanditiis eveniet
-                        </div>
-                        </div>
-                        {/* <!-- End activity item--> */}
-
-                        <div className="activity-item d-flex">
-                        <div className="activite-label">2 hrs</div>
-                        <i className='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
-                        <div className="activity-content">
-                            Voluptates corrupti molestias voluptatem
-                        </div>
-                        </div>
-                        {/* <!-- End activity item--> */}
-
-                        <div className="activity-item d-flex">
-                        <div className="activite-label">1 day</div>
-                        <i className='bi bi-circle-fill activity-badge text-info align-self-start'></i>
-                        <div className="activity-content">
-                            Tempore autem saepe <a href="#" className="fw-bold text-dark">occaecati voluptatem</a> tempore
-                        </div>
-                        </div>
-                        {/* <!-- End activity item--> */}
-
-                        <div className="activity-item d-flex">
-                        <div className="activite-label">2 days</div>
-                        <i className='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
-                        <div className="activity-content">
-                            Est sit eum reiciendis exercitationem
-                        </div>
-                        </div>
-                        {/* <!-- End activity item--> */}
-
-                        <div className="activity-item d-flex">
-                        <div className="activite-label">4 weeks</div>
-                        <i className='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
-                        <div className="activity-content">
-                            Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
-                        </div>
-                        </div>
-                        {/* <!-- End activity item--> */}
-
-                    </div>
-
-                    </div>
-                </div>
-                {/* <!-- End Recent Activity --> */}
-
-                {/* <!-- Budget Report --> */}
-                <div className="card">
-                    <div className="filter">
-                    <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                    <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li className="dropdown-header text-start">
-                        <h6>Filter</h6>
-                        </li>
-
-                        <li><a className="dropdown-item" href="#">Today</a></li>
-                        <li><a className="dropdown-item" href="#">This Month</a></li>
-                        <li><a className="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                    </div>
-
-                    <div className="card-body pb-0">
-                    <h5 className="card-title">Budget Report <span>| This Month</span></h5>
-
-                    <div className="echart b1">
-                        <Budgetchart  />
-                    </div>
-                    </div>
-                    {/* </div> */}
-                </div>
-                {/* <!-- End Budget Report --> */}
-
-                {/* <!-- Website Traffic --> */}
-                <div className="card">
-                    <div className="filter">
-                    <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                    <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li className="dropdown-header text-start">
-                        <h6>Filter</h6>
-                        </li>
-
-                        <li><a className="dropdown-item" href="#">Today</a></li>
-                        <li><a className="dropdown-item" href="#">This Month</a></li>
-                        <li><a className="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                    </div>
-
-                    <div className="card-body pb-0">
-                    <h5 className="card-title">Website Traffic <span>| Today</span></h5>
-
-                    <div className = "echart b1">
-                        <Trafficchart  />
-                    </div>
-                    </div>
-                </div>
-                {/* <!-- End Website Traffic --> */}
-
-                {/* <!-- News & Updates Traffic --> */}
-                <div className="card">
-                    <div className="filter">
-                    <a className="icon" href="#" data-bs-toggle="dropdown"><i className="bi bi-three-dots"></i></a>
-                    <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <li className="dropdown-header text-start">
-                        <h6>Filter</h6>
-                        </li>
-
-                        <li><a className="dropdown-item" href="#">Today</a></li>
-                        <li><a className="dropdown-item" href="#">This Month</a></li>
-                        <li><a className="dropdown-item" href="#">This Year</a></li>
-                    </ul>
-                    </div>
-
-                    <div className="card-body pb-0">
-                    <h5 className="card-title">News &amp; Updates <span>| Today</span></h5>
-
-                    <div className="news">
-                        <div className="post-item clearfix">
-                        <img src="assets/img/news-1.jpg" alt="" />
-                        <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                        <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                        </div>
-
-                        <div className="post-item clearfix">
-                        <img src="assets/img/news-2.jpg" alt="" />
-                        <h4><a href="#">Quidem autem et impedit</a></h4>
-                        <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                        </div>
-
-                        <div className="post-item clearfix">
-                        <img src="assets/img/news-3.jpg" alt="" />
-                        <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                        <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
-                        </div>
-
-                        <div className="post-item clearfix">
-                        <img src="assets/img/news-4.jpg" alt="" />
-                        <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                        <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
-                        </div>
-
-                        <div className="post-item clearfix">
-                        <img src="assets/img/news-5.jpg" alt="" />
-                        <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                        <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
-                        </div>
-
-                    </div>
-                    {/* <!-- End sidebar recent posts--> */}
-
-                    </div>
-                </div>
-                {/* <!-- End News & Updates --> */}
-
-                </div>
-                {/* <!-- End Right side columns --> */}
-
+            <div className="mb-5"></div>
+
+            <h5 className="section-title section-title-sm mb-4">All Doctors</h5>
+            <div>
+              <div style = {{display: "flex", alignItems: "center", columnGap: "1rem"}}>
+                <div style ={{backgroundColor :"red", width : "1rem" , height: "1rem", borderRadius: "50%"}}></div>
+                <p className = "actionfont">Dr.Doctor 1</p>
+              </div>
+              <div style = {{display: "flex",alignItems: "center", columnGap: "1rem"}}>
+                <div style ={{backgroundColor :"blue", width : "1rem" , height: "1rem", borderRadius: "50%"}}></div>
+                <p className = "actionfont">Dr.Doctor 2</p>
+              </div>
+              <div style = {{display: "flex",alignItems: "center", columnGap: "1rem"}}>
+                <div style ={{backgroundColor :"green", width : "1rem" , height: "1rem", borderRadius: "50%"}}></div>
+                <p className = "actionfont">Dr.Doctor 3</p>
+              </div>
+              <div style = {{display: "flex",alignItems: "center", columnGap: "1rem"}}>
+                <div style ={{backgroundColor :"yellow", width : "1rem" , height: "1rem", borderRadius: "50%"}}></div>
+                <p className = "actionfont">Dr.Doctor 4</p>
+              </div>
+              <div style = {{display: "flex",alignItems: "center", columnGap: "1rem"}}>
+                <div style ={{backgroundColor : "grey", width : "1rem" , height: "1rem", borderRadius: "50%"}}></div>
+                <p className = "actionfont">Dr.Doctor 5</p>
+              </div>
             </div>
-            </section>
-
-            </main>
-            {/* <!-- End #main --> */}
-
-            {/* <!-- ======= Footer ======= --> */}
-            <footer id="footer" className="footer" style = {{position: "relative", width: "80%"}}>
-            <div className="copyright">
-            &copy; Copyright <strong><span>ANC</span></strong>. All Rights Reserved
+            <div style = {{marginTop: "22rem"}}>
+              <button className = "actionbutton" onClick = {() => {navigate("/receptionist/dashboard")}}>Back</button>
             </div>
-            </footer>
-            {/* <!-- End Footer --> */}
 
-            <a href="#" className="back-to-top d-flex align-items-center justify-content-center"><i className="bi bi-arrow-up-short"></i></a>
+          </PerfectScrollbar>
+        </div>
+        <div className="calendar-body">
+          <FullCalendar
+            plugins={[dayGridPlugin, timeGridPlugin]}
+            initialView="dayGridMonth"
+            headerToolbar={{
+              "left": "custom1 prev,next today",
+              "center": "title",
+              "right": "dayGridMonth,timeGridWeek,timeGridDay"
+            }}
+            eventSources={[
+              calendarEvents,
+              birthdayEvents,
+              holidayEvents,
+              discoveredEvents,
+              meetupEvents,
+              otherEvents
+            ]}
+            customButtons={
+              {
+                custom1: {
+                  icon: "chevron-left",
+                  click: function () {
+                    setSidebarShow(!isSidebarShow);
+                  }
+                }
+              }
+            }
+          />
+
+          <Modal className="modal-event" show={modalShow} onHide={handleModalClose} centered>
+            <Modal.Header closeButton>
+              <Modal.Title>Create New Event</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="mb-3">
+                <Form.Label>Event Title:</Form.Label>
+                <Form.Control type="text" placeholder="Enter title of event" />
+              </div>
+              <div className="mb-3">
+                <Form.Check type="radio" name="etype" inline label="Event" checked />
+                <Form.Check type="radio" name="etype" inline label="Reminder" />
+              </div>
+              <Row className="g-3 mb-3">
+                <Col xs="7" md="8">
+                  <Form.Label>Start Date:</Form.Label>
+                  <Form.Control type="text" placeholder="Choose date" />
+                </Col>
+                <Col>
+                  <Form.Label>Start Time:</Form.Label>
+                  <Form.Select>
+                    <option value="">Choose time</option>
+                    <option value="12:00AM">12:00AM</option>
+                    <option value="12:15AM">12:15AM</option>
+                    <option value="12:30AM">12:30AM</option>
+                    <option value="12:45AM">12:45AM</option>
+                  </Form.Select>
+                </Col>
+              </Row>
+
+              <Row className="g-3 mb-3">
+                <Col xs="7" md="8">
+                  <Form.Label>End Date:</Form.Label>
+                  <Form.Control type="text" placeholder="Choose date" />
+                </Col>
+                <Col>
+                  <Form.Label>End Time:</Form.Label>
+                  <Form.Select>
+                    <option value="">Choose time</option>
+                    <option value="12:00AM">12:00AM</option>
+                    <option value="12:15AM">12:15AM</option>
+                    <option value="12:30AM">12:30AM</option>
+                    <option value="12:45AM">12:45AM</option>
+                  </Form.Select>
+                </Col>
+              </Row>
+              <div>
+                <Form.Label>Description</Form.Label>
+                <Form.Control as="textarea" rows="3" placeholder="Write some description (optional)" />
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="" className="btn-white" onClick={handleModalClose}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={handleModalClose}>
+                Add Event
+              </Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
+      </div>
         </>
     );
 }

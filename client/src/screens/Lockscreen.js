@@ -1,6 +1,6 @@
 import React from "react";
-import "../../index.css";
-import "../../assets/css/style.css";
+import "../index.css";
+import "../assets/css/style.css";
 
 function Lockscreen() {
     return (

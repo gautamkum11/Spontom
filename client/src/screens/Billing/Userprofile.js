@@ -2,14 +2,14 @@ import React from "react";
 import "../../index.css";
 import "../../assets/css/style.css";
 import Navbar from "../../components/Navbar.js";
-import Sidebar from "../../components/Sidebar_Receptionist";
 import profileimg from "../../assets/img/profile-img.jpg";
+import Sidebar_Billing from "../../components/Sidebar_Billing";
 
-function Userprofile() {
+function BillingUserprofile() {
     return (
         <>
             <Navbar />
-            <Sidebar />
+            <Sidebar_Billing />
             <main id="main" className="main">
 
             <div class="pagetitle">
@@ -324,4 +324,4 @@ function Userprofile() {
     );
 }
 
-export default Userprofile;
+export default BillingUserprofile;

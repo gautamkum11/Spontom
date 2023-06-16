@@ -8,7 +8,7 @@ import profileimg from "../../assets/img/profile-img.jpg";
 import Appointmentdetails from "../../components/Appointmentdetails";
 import {useNavigate}from "react-router-dom";
 
-function Viewpatient() {
+function Viewpatient_assistant() {
     const navigate = useNavigate();
     const [isshown,setisshown] = useState(false);
 
@@ -24,8 +24,8 @@ function Viewpatient() {
     }
 
     return (
-        <>
-            <header id="header" className="header fixed-top d-flex align-items-center">
+        <>  
+             <header id="header" className="header fixed-top d-flex align-items-center">
 
             <div className="d-flex align-items-center justify-content-between">
             <a href="/" className="logo d-flex align-items-center">
@@ -210,7 +210,6 @@ function Viewpatient() {
             {/* <!-- End Icons Navigation --> */}
 
             </header>
-
             <div className = "viewp1">
                 {isshown && <Appointmentdetails name = {isshown} oncheck = {closeaction} />}
                 <div className = "viewp1-1">
@@ -490,4 +489,4 @@ function Viewpatient() {
     );
 }
 
-export default Viewpatient;
+export default Viewpatient_assistant;

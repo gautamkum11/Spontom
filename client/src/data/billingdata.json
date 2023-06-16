@@ -1,0 +1,25 @@
+[{
+    "invoice" : "#1001",
+    "name" : "Gautam",
+    "amount" : "Rs 900",
+    "transid" : "CAKJHDL",
+    "date" : "22nd Nov 2022",
+    "Mode": "Card",
+    "status" : "Paid"
+},{
+    "invoice" : "#1001",
+    "name" : "Gautam",
+    "amount" : "Rs 900",
+    "transid" : "CAKJHDL",
+    "date" : "22nd Nov 2022",
+    "Mode": "Card",
+    "status" : "Processing"
+},{
+    "invoice" : "#1001",
+    "name" : "Gautam",
+    "amount" : "Rs 900",
+    "transid" : "CAKJHDL",
+    "date" : "22nd Nov 2022",
+    "Mode": "Card",
+    "status" : "Paid"
+}]

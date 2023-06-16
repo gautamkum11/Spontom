@@ -1,0 +1,102 @@
+.bill1 {
+    background-color: red;
+}
+
+
+.billingbox {
+    display: flex;
+    height: 700px;
+    justify-content: center;
+    align-items: center;
+}
+
+.billingbox1 {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-color: #FFFFFF;
+    position: fixed;
+    width: 48rem;
+    height: 39rem;
+    margin-top: 3rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+}
+
+.billingbox2 {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    border-bottom: 2px solid black;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.billingimg {
+    width: 0.8rem;
+    height: 0.8rem;
+}
+
+.billingbox3 {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 5rem;
+    align-items: center;
+    margin: 1rem 1rem 0 1rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
+}
+
+.billingimg1 {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
+
+.billingfont {
+    font-size: 1rem;
+    color: black;
+    font-weight: 800;
+    margin: 0;
+}
+
+.billingbox4 {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* column-gap: 2rem; */
+    border-bottom: 1px solid grey;
+}
+
+.billingbox4-1 {
+    width: 40%;
+    flex-direction: column;
+}
+
+.billingbox4-2 {
+    width: 60%;
+    flex-direction: column;
+}
+
+.billingfontans {
+    font-size: 1rem;
+    color: black;
+    font-weight: 500;
+    margin: 0;
+}
+
+.billingbox5 {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.billingbox6{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1rem;
+    column-gap: 0.5rem;
+    font-size: 0.9rem;
+}
